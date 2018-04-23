@@ -1,3 +1,43 @@
+## CIMI GENERAL STEPS
+
+```
+1.- Instalar dependencias con npm install
+
+2.- Instalar el router con nom install --save react-router-dom
+
+3.- Conectar a la API
+
+  -Traer la API al Constructor dentro del Componente UsersTable
+
+  -Agregar el ComponentDidMount
+
+  -Importar el Superagent al Componente
+
+  -Instalar el Superagent en terminal con npm install superagent
+
+  -Agregar la Const con la URL de la API const = API_URL= <<URL>>
+
+4.- Configurar las rutas 
+
+  -importar Switch en App.js from react-router-dom
+
+  -Hacer el Switch y Route y las ROutes dentro de él con sus tres parametos: exact, path y component
+
+  -Guardar en index.js todo dentro de <HashRouter></HashRouter>
+
+  -Guardamos el botón <FloatingActionButton></FloatingActionButton dentro de <Link to='/new'></Link>
+
+  -Habilitamos botón See Details <RaisedButton label="See details" /> dentro de <Link to={'/user/'+'user.id'}></Link>
+
+  -Habilitamos la vista del SingleUser
+
+5.-Configurar Nuevo Usuario
+
+
+```
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
