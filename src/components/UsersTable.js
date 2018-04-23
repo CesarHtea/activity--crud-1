@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import request from 'superagent'
 
 import {
@@ -78,9 +79,13 @@ class UsersTable extends Component {
   
           </TableBody>
         </Table>
-        <FloatingActionButton style={style}>
-          <ContentAdd />
-        </FloatingActionButton>
+
+        <Link to='/new'> 
+          <FloatingActionButton style={style}>
+            <ContentAdd />
+          </FloatingActionButton>
+        </Link>
+        
       </div>
     )
   }
