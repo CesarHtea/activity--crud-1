@@ -5,15 +5,19 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-class AppTheme extends React.Component {
+import { HashRouter } from 'react-router-dom'
+
+class ApiRouter extends React.Component {
   render() {
     return (
-      <MuiThemeProvider>
-        <App />
-      </MuiThemeProvider>
+      <HashRouter>
+        <MuiThemeProvider>
+          <App />
+        </MuiThemeProvider>
+      </HashRouter>
     )
   }
 }
 
-ReactDOM.render(<AppTheme />, document.getElementById('root'));
+ReactDOM.render(<ApiRouter />, document.getElementById('root'));
 registerServiceWorker();

@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import request from 'superagent'
 
-
-
 import {
   Table,
   TableBody,
@@ -37,14 +35,13 @@ class UsersTable extends Component {
 
   componentDidMount() {
     request
-      .get(`${API_URL}/api/users`)
+      .get(`${API_URL}/api/users?per_page=20`)
       .then((data) => {
         this.setState({
           users: data.body.data
         })
       })
-
-
+  
   }
 
   render() {
@@ -78,7 +75,6 @@ class UsersTable extends Component {
 
             })}
             
-A
   
           </TableBody>
         </Table>
