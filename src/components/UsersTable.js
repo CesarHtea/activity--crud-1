@@ -47,7 +47,7 @@ class UsersTable extends Component {
 
   render() {
     const users = this.state.users
-    console.log(users)
+    // console.log(users)
     return (
       <div>
         <Table>
@@ -62,7 +62,7 @@ class UsersTable extends Component {
           <TableBody>
             
             {users.map((user) => {
-            console.log(user)
+            // console.log(user)
             return (
               <TableRow>
                 <TableRowColumn>{user.id}</TableRowColumn>

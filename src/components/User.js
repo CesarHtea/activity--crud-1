@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import request from 'superagent'
 
 import {
   Card,
@@ -15,19 +16,44 @@ const style = {
   marginTop: 30
 }
 
+const API_URL = 'https://reqres.in'
+
 class User extends Component {
+
+    constructor() {
+    super()
+    
+    this.state = {
+      user: []
+    }
+
+  }
+
+  componentDidMount() {
+    request
+      .get(`${API_URL}/api/users/${this.props.match.params.id}`)
+      .then((data) => {
+        this.setState({
+          user: data.body.data
+        })
+      })
+  
+  }
+
   render() {
+    const user = this.state.user
+    console.log(user)
     return (
       <Card style={style}>
         <CardHeader
-          title="John Smith"
-          subtitle="ID: 1"
-          avatar="https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg"
+          title={user.first_name + ' ' + user.last_name}
+          subtitle={'ID:' + user.id}
+          avatar={user.avatar}
         />
         <CardMedia
-          overlay={<CardTitle title="John Smith" subtitle="ID: 1" />}
+          overlay={<CardTitle title={user.first_name + ' ' + user.last_name} subtitle={'ID:' + user.id} />}
         >
-          <img src="https://s3.amazonaws.com/uifaces/faces/twitter/josephstein/128.jpg" alt="" />
+          <img src={user.avatar} alt="" />
         </CardMedia>
         <CardTitle title="Web Developer" subtitle="4yrs" />
         <CardText>
