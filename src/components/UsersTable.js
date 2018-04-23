@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import request from 'superagent'
+
+
 
 import {
   Table,
@@ -19,8 +22,33 @@ const style = {
   bottom: 20
 };
 
+const API_URL = 'https://reqres.in'
+
 class UsersTable extends Component {
+
+  constructor() {
+    super()
+    
+    this.state = {
+      users: []
+    }
+
+  }
+
+  componentDidMount() {
+    request
+      .get(`${API_URL}/api/users`)
+      .then((data) => {
+        this.setState({
+          users: data.body.data
+        })
+      })
+
+
+  }
+
   render() {
+    console.log(this.state.users)
     return (
       <div>
         <Table>
