@@ -69,7 +69,9 @@ class UsersTable extends Component {
                 <TableRowColumn>{user.first_name}</TableRowColumn>
                 <TableRowColumn>{user.last_name}</TableRowColumn>
                 <TableRowColumn>
-                  <RaisedButton label="See details" />
+                  <Link to={'/user/'+ user.id} >
+                    <RaisedButton label="See details" />
+                  </Link>
                 </TableRowColumn>
               </TableRow>
             )
@@ -85,7 +87,7 @@ class UsersTable extends Component {
             <ContentAdd />
           </FloatingActionButton>
         </Link>
-        
+
       </div>
     )
   }
