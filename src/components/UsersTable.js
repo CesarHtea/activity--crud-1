@@ -48,7 +48,8 @@ class UsersTable extends Component {
   }
 
   render() {
-    console.log(this.state.users)
+    const users = this.state.users
+    console.log(users)
     return (
       <div>
         <Table>
@@ -62,33 +63,23 @@ class UsersTable extends Component {
           </TableHeader>
           <TableBody>
             
-            <TableRow>
-              <TableRowColumn>1</TableRowColumn>
-              <TableRowColumn>John</TableRowColumn>
-              <TableRowColumn>Smith</TableRowColumn>
-              <TableRowColumn>
-                <RaisedButton label="See details" />
-              </TableRowColumn>
-            </TableRow>
+            {users.map((user) => {
+            console.log(user)
+            return (
+              <TableRow>
+                <TableRowColumn>{user.id}</TableRowColumn>
+                <TableRowColumn>{user.first_name}</TableRowColumn>
+                <TableRowColumn>{user.last_name}</TableRowColumn>
+                <TableRowColumn>
+                  <RaisedButton label="See details" />
+                </TableRowColumn>
+              </TableRow>
+            )
 
-            <TableRow>
-              <TableRowColumn>1</TableRowColumn>
-              <TableRowColumn>John</TableRowColumn>
-              <TableRowColumn>Smith</TableRowColumn>
-              <TableRowColumn>
-                <RaisedButton label="See details" />
-              </TableRowColumn>
-            </TableRow>
-
-            <TableRow>
-              <TableRowColumn>1</TableRowColumn>
-              <TableRowColumn>John</TableRowColumn>
-              <TableRowColumn>Smith</TableRowColumn>
-              <TableRowColumn>
-                <RaisedButton label="See details" />
-              </TableRowColumn>
-            </TableRow>
-
+            })}
+            
+A
+  
           </TableBody>
         </Table>
         <FloatingActionButton style={style}>
